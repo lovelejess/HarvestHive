@@ -10,10 +10,19 @@ import MapKit
 
 class MeetXViewController: UIViewController {
 
+    let locationManager: CLLocationManager = {
+       let manager = CLLocationManager()
+        manager.requestWhenInUseAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.distanceFilter = kCLHeadingFilterNone
+        return manager
+    }()
+
     let mapView : MKMapView = {
         let map = MKMapView()
         map.overrideUserInterfaceStyle = .dark
         map.translatesAutoresizingMaskIntoConstraints = false
+        map.showsUserLocation = true
         return map
     }()
 
@@ -31,8 +40,8 @@ class MeetXViewController: UIViewController {
 
         view.addSubview(mapView)
         setMapConstraints()
-
         mapView.delegate = self
+        locationManager.startUpdatingLocation()
     }
 
     @objc func addX() {
