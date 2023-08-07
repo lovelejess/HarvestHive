@@ -21,6 +21,7 @@
 		168DCD972A818E8C00690ACC /* MeetXCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD962A818E8C00690ACC /* MeetXCoordinator.swift */; };
 		168DCD992A818EE700690ACC /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD982A818EE700690ACC /* Route.swift */; };
 		168DCD9B2A818F6A00690ACC /* MeetXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD9A2A818F6A00690ACC /* MeetXViewController.swift */; };
+		168DCD9D2A8197E700690ACC /* UITabBarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD9C2A8197E700690ACC /* UITabBarHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		168DCD962A818E8C00690ACC /* MeetXCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetXCoordinator.swift; sourceTree = "<group>"; };
 		168DCD982A818EE700690ACC /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		168DCD9A2A818F6A00690ACC /* MeetXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetXViewController.swift; sourceTree = "<group>"; };
+		168DCD9C2A8197E700690ACC /* UITabBarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				168DCD8E2A818D6B00690ACC /* AppCoordinator */,
 				168DCD952A818E7C00690ACC /* Map */,
 				168DCD8D2A818D5B00690ACC /* Main */,
+				168DCD9E2A8198FF00690ACC /* UIHelpers */,
 				168115362A8182620068B482 /* ViewController.swift */,
 				1681153B2A8182640068B482 /* Assets.xcassets */,
 				1681153D2A8182640068B482 /* LaunchScreen.storyboard */,
@@ -164,6 +167,14 @@
 				168DCD9A2A818F6A00690ACC /* MeetXViewController.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		168DCD9E2A8198FF00690ACC /* UIHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				168DCD9C2A8197E700690ACC /* UITabBarHelper.swift */,
+			);
+			path = UIHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +313,7 @@
 				168DCD9B2A818F6A00690ACC /* MeetXViewController.swift in Sources */,
 				168DCD942A818DE400690ACC /* TabBarCoordinator.swift in Sources */,
 				168DCD922A818D9100690ACC /* AppCoordinator.swift in Sources */,
+				168DCD9D2A8197E700690ACC /* UITabBarHelper.swift in Sources */,
 				168DCD992A818EE700690ACC /* Route.swift in Sources */,
 				168115332A8182620068B482 /* AppDelegate.swift in Sources */,
 				168115352A8182620068B482 /* SceneDelegate.swift in Sources */,

@@ -15,6 +15,8 @@ class TabBarCoordinator: Coordinatable {
     init() {
         rootViewController = UITabBarController()
         rootViewController.tabBar.backgroundColor = .lightGray
+        rootViewController.tabBar.tintColor = .darkGray
+        rootViewController.tabBar.unselectedItemTintColor = .black
     }
 
     func start() {
@@ -23,15 +25,9 @@ class TabBarCoordinator: Coordinatable {
         childCoordinators.append(meetXCoordinator)
 
         let meetXViewController = meetXCoordinator.rootViewController
-        setup(vc: meetXViewController, title: "MeetX", imageName: "mappin", selectedImageName: "mappin.and.ellipse")
+        meetXViewController.tabBarItem = UITabBarHelper.createItem(title: "MeetX", imageName: "mappin", selectedImageName: "mappin.and.ellipse")
 
         rootViewController.viewControllers = [meetXViewController]
     }
 
-    private func setup(vc: UIViewController, title: String, imageName: String, selectedImageName: String) {
-        let defaultImage = UIImage(systemName: imageName)
-        let selectedImage = UIImage(systemName: selectedImageName)
-        let tabBarItem = UITabBarItem(title: title, image: defaultImage, selectedImage: selectedImage)
-        vc.tabBarItem = tabBarItem
-    }
 }
