@@ -15,6 +15,12 @@
 		1681154A2A8182650068B482 /* MeetMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115492A8182650068B482 /* MeetMeTests.swift */; };
 		168115542A8182650068B482 /* MeetMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115532A8182650068B482 /* MeetMeUITests.swift */; };
 		168115562A8182650068B482 /* MeetMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115552A8182650068B482 /* MeetMeUITestsLaunchTests.swift */; };
+		168DCD902A818D7C00690ACC /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD8F2A818D7C00690ACC /* Coordinatable.swift */; };
+		168DCD922A818D9100690ACC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD912A818D9100690ACC /* AppCoordinator.swift */; };
+		168DCD942A818DE400690ACC /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD932A818DE400690ACC /* TabBarCoordinator.swift */; };
+		168DCD972A818E8C00690ACC /* MeetXCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD962A818E8C00690ACC /* MeetXCoordinator.swift */; };
+		168DCD992A818EE700690ACC /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD982A818EE700690ACC /* Route.swift */; };
+		168DCD9B2A818F6A00690ACC /* MeetXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD9A2A818F6A00690ACC /* MeetXViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 		1681154F2A8182650068B482 /* MeetMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		168115532A8182650068B482 /* MeetMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetMeUITests.swift; sourceTree = "<group>"; };
 		168115552A8182650068B482 /* MeetMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		168DCD8F2A818D7C00690ACC /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		168DCD912A818D9100690ACC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		168DCD932A818DE400690ACC /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		168DCD962A818E8C00690ACC /* MeetXCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetXCoordinator.swift; sourceTree = "<group>"; };
+		168DCD982A818EE700690ACC /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		168DCD9A2A818F6A00690ACC /* MeetXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetXViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +109,9 @@
 		168115312A8182620068B482 /* MeetMe */ = {
 			isa = PBXGroup;
 			children = (
-				168115322A8182620068B482 /* AppDelegate.swift */,
-				168115342A8182620068B482 /* SceneDelegate.swift */,
+				168DCD8E2A818D6B00690ACC /* AppCoordinator */,
+				168DCD952A818E7C00690ACC /* Map */,
+				168DCD8D2A818D5B00690ACC /* Main */,
 				168115362A8182620068B482 /* ViewController.swift */,
 				1681153B2A8182640068B482 /* Assets.xcassets */,
 				1681153D2A8182640068B482 /* LaunchScreen.storyboard */,
@@ -122,6 +135,35 @@
 				168115552A8182650068B482 /* MeetMeUITestsLaunchTests.swift */,
 			);
 			path = MeetMeUITests;
+			sourceTree = "<group>";
+		};
+		168DCD8D2A818D5B00690ACC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				168115322A8182620068B482 /* AppDelegate.swift */,
+				168115342A8182620068B482 /* SceneDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		168DCD8E2A818D6B00690ACC /* AppCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				168DCD8F2A818D7C00690ACC /* Coordinatable.swift */,
+				168DCD912A818D9100690ACC /* AppCoordinator.swift */,
+				168DCD932A818DE400690ACC /* TabBarCoordinator.swift */,
+				168DCD982A818EE700690ACC /* Route.swift */,
+			);
+			path = AppCoordinator;
+			sourceTree = "<group>";
+		};
+		168DCD952A818E7C00690ACC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				168DCD962A818E8C00690ACC /* MeetXCoordinator.swift */,
+				168DCD9A2A818F6A00690ACC /* MeetXViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				168115372A8182620068B482 /* ViewController.swift in Sources */,
+				168DCD902A818D7C00690ACC /* Coordinatable.swift in Sources */,
+				168DCD972A818E8C00690ACC /* MeetXCoordinator.swift in Sources */,
+				168DCD9B2A818F6A00690ACC /* MeetXViewController.swift in Sources */,
+				168DCD942A818DE400690ACC /* TabBarCoordinator.swift in Sources */,
+				168DCD922A818D9100690ACC /* AppCoordinator.swift in Sources */,
+				168DCD992A818EE700690ACC /* Route.swift in Sources */,
 				168115332A8182620068B482 /* AppDelegate.swift in Sources */,
 				168115352A8182620068B482 /* SceneDelegate.swift in Sources */,
 			);
@@ -432,7 +480,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -462,7 +509,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
