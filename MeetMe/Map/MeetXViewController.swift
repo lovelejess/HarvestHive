@@ -6,12 +6,21 @@
 //
 
 import UIKit
+import MapKit
 
 class MeetXViewController: UIViewController {
 
+    let mapView : MKMapView = {
+        let map = MKMapView()
+        map.overrideUserInterfaceStyle = .dark
+        map.translatesAutoresizingMaskIntoConstraints = false
+        return map
+    }()
+
     lazy var addButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addX))
-        button.tintColor = .black
+        button.tintColor = .white
+        button.title = "Add"
         return button
     }()
 
@@ -19,10 +28,28 @@ class MeetXViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemGray
         navigationItem.rightBarButtonItem = addButton
+
+        view.addSubview(mapView)
+        setMapConstraints()
+
+        mapView.delegate = self
     }
 
     @objc func addX() {
         print("JESS")
     }
+}
+
+extension MeetXViewController {
+    private func setMapConstraints() {
+        mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+}
+
+
+extension MeetXViewController: MKMapViewDelegate {
 
 }

@@ -16,13 +16,13 @@ class MeetXCoordinator: Coordinatable {
 
     init() {
         rootViewController = UINavigationController()
+
         rootViewController.navigationBar.prefersLargeTitles = true
+        rootViewController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.lightGray]
     }
 
     lazy var meetXCoordinator: MeetXViewController = {
         let vc = MeetXViewController()
-        vc.title = "MeetX"
-
         return vc
     }()
 
