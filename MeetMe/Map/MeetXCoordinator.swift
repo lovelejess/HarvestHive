@@ -16,12 +16,9 @@ class MeetXCoordinator: Coordinatable {
 
     init() {
         rootViewController = UINavigationController()
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .lightGray
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        rootViewController.navigationBar.standardAppearance = appearance
-        rootViewController.navigationBar.scrollEdgeAppearance = appearance
-        rootViewController.navigationBar.compactScrollEdgeAppearance = appearance
+        rootViewController.navigationBar.standardAppearance = NavigationBar.defaultAppearance()
+        rootViewController.navigationBar.scrollEdgeAppearance = NavigationBar.defaultAppearance()
+        rootViewController.navigationBar.compactScrollEdgeAppearance = NavigationBar.defaultAppearance()
     }
 
     lazy var meetXCoordinator: MeetXViewController = {
