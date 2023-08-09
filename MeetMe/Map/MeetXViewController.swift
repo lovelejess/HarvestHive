@@ -7,8 +7,9 @@
 
 import UIKit
 import MapKit
+import SwiftUI
 
-class MeetXViewController: UIViewController {
+class MeetXViewController: UIHostingController<MapView> {
 
     let locationManager: CLLocationManager = {
        let manager = CLLocationManager()
@@ -16,14 +17,6 @@ class MeetXViewController: UIViewController {
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.distanceFilter = kCLHeadingFilterNone
         return manager
-    }()
-
-    let mapView : MKMapView = {
-        let map = MKMapView()
-        map.overrideUserInterfaceStyle = .dark
-        map.translatesAutoresizingMaskIntoConstraints = false
-        map.showsUserLocation = true
-        return map
     }()
 
     lazy var addButton: UIBarButtonItem = {
@@ -35,29 +28,12 @@ class MeetXViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray
         navigationItem.rightBarButtonItem = addButton
 
-        view.addSubview(mapView)
-        setMapConstraints()
-        mapView.delegate = self
         locationManager.startUpdatingLocation()
     }
 
     @objc func addX() {
         print("JESS")
     }
-}
-
-extension MeetXViewController {
-    private func setMapConstraints() {
-        mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-    }
-}
-
-extension MeetXViewController: MKMapViewDelegate {
-
 }
