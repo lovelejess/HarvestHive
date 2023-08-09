@@ -22,9 +22,11 @@ class MeetXCoordinator: Coordinatable {
     }
 
     lazy var meetXCoordinator: MeetXViewController = {
-        let vc = MeetXViewController(rootView: MapView())
-        vc.title = "MeetX Locations"
-        return vc
+        let locationManager = LocationManager()
+        let viewModel = MapViewModel(locationManager: locationManager)
+        let viewController = MeetXViewController(rootView: MapView(viewModel: viewModel))
+        viewController.title = viewModel.title
+        return viewController
     }()
 
     func start() {

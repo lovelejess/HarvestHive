@@ -16,6 +16,8 @@
 		168115542A8182650068B482 /* MeetMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115532A8182650068B482 /* MeetMeUITests.swift */; };
 		168115562A8182650068B482 /* MeetMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115552A8182650068B482 /* MeetMeUITestsLaunchTests.swift */; };
 		16824A472A8409FE00F3740B /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16824A462A8409FE00F3740B /* NavigationBar.swift */; };
+		16824A492A840B7800F3740B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16824A482A840B7700F3740B /* MapViewModel.swift */; };
+		16824A4B2A840DD200F3740B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16824A4A2A840DD200F3740B /* LocationManager.swift */; };
 		168DCD902A818D7C00690ACC /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD8F2A818D7C00690ACC /* Coordinatable.swift */; };
 		168DCD922A818D9100690ACC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD912A818D9100690ACC /* AppCoordinator.swift */; };
 		168DCD942A818DE400690ACC /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD932A818DE400690ACC /* TabBarCoordinator.swift */; };
@@ -57,6 +59,8 @@
 		168115532A8182650068B482 /* MeetMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetMeUITests.swift; sourceTree = "<group>"; };
 		168115552A8182650068B482 /* MeetMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		16824A462A8409FE00F3740B /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		16824A482A840B7700F3740B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		16824A4A2A840DD200F3740B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		168DCD8F2A818D7C00690ACC /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		168DCD912A818D9100690ACC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		168DCD932A818DE400690ACC /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				168DCD962A818E8C00690ACC /* MeetXCoordinator.swift */,
 				168DCD9A2A818F6A00690ACC /* MeetXViewController.swift */,
 				168DCD9F2A829B7A00690ACC /* MapView.swift */,
+				16824A482A840B7700F3740B /* MapViewModel.swift */,
+				16824A4A2A840DD200F3740B /* LocationManager.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -317,11 +323,13 @@
 				168DCD902A818D7C00690ACC /* Coordinatable.swift in Sources */,
 				168DCD972A818E8C00690ACC /* MeetXCoordinator.swift in Sources */,
 				168DCDA02A829B7A00690ACC /* MapView.swift in Sources */,
+				16824A492A840B7800F3740B /* MapViewModel.swift in Sources */,
 				168DCD9B2A818F6A00690ACC /* MeetXViewController.swift in Sources */,
 				168DCD942A818DE400690ACC /* TabBarCoordinator.swift in Sources */,
 				168DCD922A818D9100690ACC /* AppCoordinator.swift in Sources */,
 				168DCD9D2A8197E700690ACC /* UITabBarHelper.swift in Sources */,
 				168DCD992A818EE700690ACC /* Route.swift in Sources */,
+				16824A4B2A840DD200F3740B /* LocationManager.swift in Sources */,
 				168115332A8182620068B482 /* AppDelegate.swift in Sources */,
 				168115352A8182620068B482 /* SceneDelegate.swift in Sources */,
 				16824A472A8409FE00F3740B /* NavigationBar.swift in Sources */,
