@@ -12,12 +12,12 @@
 		168115372A8182620068B482 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115362A8182620068B482 /* ViewController.swift */; };
 		1681153C2A8182640068B482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1681153B2A8182640068B482 /* Assets.xcassets */; };
 		1681153F2A8182640068B482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1681153D2A8182640068B482 /* LaunchScreen.storyboard */; };
-		1681154A2A8182650068B482 /* MeetMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115492A8182650068B482 /* MeetMeTests.swift */; };
 		168115542A8182650068B482 /* MeetMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115532A8182650068B482 /* MeetMeUITests.swift */; };
 		168115562A8182650068B482 /* MeetMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115552A8182650068B482 /* MeetMeUITestsLaunchTests.swift */; };
 		16824A472A8409FE00F3740B /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16824A462A8409FE00F3740B /* NavigationBar.swift */; };
 		16824A492A840B7800F3740B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16824A482A840B7700F3740B /* MapViewModel.swift */; };
 		16824A4B2A840DD200F3740B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16824A4A2A840DD200F3740B /* LocationManager.swift */; };
+		16824A4D2A84149100F3740B /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16824A4C2A84149100F3740B /* MapViewModelTests.swift */; };
 		168DCD902A818D7C00690ACC /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD8F2A818D7C00690ACC /* Coordinatable.swift */; };
 		168DCD922A818D9100690ACC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD912A818D9100690ACC /* AppCoordinator.swift */; };
 		168DCD942A818DE400690ACC /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD932A818DE400690ACC /* TabBarCoordinator.swift */; };
@@ -54,13 +54,13 @@
 		1681153E2A8182640068B482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		168115402A8182640068B482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		168115452A8182650068B482 /* MeetMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		168115492A8182650068B482 /* MeetMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetMeTests.swift; sourceTree = "<group>"; };
 		1681154F2A8182650068B482 /* MeetMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		168115532A8182650068B482 /* MeetMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetMeUITests.swift; sourceTree = "<group>"; };
 		168115552A8182650068B482 /* MeetMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		16824A462A8409FE00F3740B /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		16824A482A840B7700F3740B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		16824A4A2A840DD200F3740B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		16824A4C2A84149100F3740B /* MapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTests.swift; sourceTree = "<group>"; };
 		168DCD8F2A818D7C00690ACC /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		168DCD912A818D9100690ACC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		168DCD932A818DE400690ACC /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -96,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		163C37112A995D9200B26A27 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				16824A4C2A84149100F3740B /* MapViewModelTests.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		168115262A8182620068B482 = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +142,7 @@
 		168115482A8182650068B482 /* MeetMeTests */ = {
 			isa = PBXGroup;
 			children = (
-				168115492A8182650068B482 /* MeetMeTests.swift */,
+				163C37112A995D9200B26A27 /* Map */,
 			);
 			path = MeetMeTests;
 			sourceTree = "<group>";
@@ -340,7 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1681154A2A8182650068B482 /* MeetMeTests.swift in Sources */,
+				16824A4D2A84149100F3740B /* MapViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

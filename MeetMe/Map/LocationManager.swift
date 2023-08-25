@@ -8,16 +8,23 @@
 import Foundation
 import MapKit
 
-class LocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
+protocol LocationManagable {
+    var region: MKCoordinateRegion { get set }
+    
+}
+class LocationManager: NSObject, LocationManagable, CLLocationManagerDelegate, ObservableObject {
     @Published var region = MKCoordinateRegion()
     private let manager = CLLocationManager()
+
+    init(locationManager: CLLocationManager = CLLocationManager()) {
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+    }
 
     override init() {
         super.init()
         manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
     }
 }
 
