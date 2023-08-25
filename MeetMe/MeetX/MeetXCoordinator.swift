@@ -32,6 +32,11 @@ class MeetXCoordinator: Coordinatable {
         return viewController
     }()
 
+    lazy var addXViewController: UIHostingController = {
+        let viewController = UIHostingController(rootView: AddXView())
+        return viewController
+    }()
+
     func start() {
         rootViewController.setViewControllers([meetXViewController], animated: false)
     }
@@ -42,6 +47,7 @@ extension MeetXCoordinator {
         switch route {
         case .rootTabBar(.meetX(.add)):
             print("I'm adding")
+            rootViewController.present(addXViewController, animated: true)
         default:
             print("nothing here")
         }
