@@ -15,10 +15,6 @@ class MapViewModel: ObservableObject {
     private var subscriptions = Set<AnyCancellable>()
     private var locationManager: LocationManager
 
-    var title: String {
-        return "MeetX Locations"
-    }
-
     init(locationManager: LocationManager) {
         self.locationManager = locationManager
         self.locationManager.$region

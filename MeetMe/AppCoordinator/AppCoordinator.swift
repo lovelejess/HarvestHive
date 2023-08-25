@@ -23,3 +23,9 @@ class AppCoordinator: Coordinatable {
         window.rootViewController = tabBarCoordinator.rootViewController
     }
 }
+
+extension AppCoordinator {
+    func navigate(to: Route) {
+        return
+    }
+}

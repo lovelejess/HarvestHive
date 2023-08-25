@@ -10,4 +10,5 @@ import Foundation
 protocol Coordinatable: AnyObject {
     var childCoordinators: [Coordinatable] { get }
     func start()
+    func navigate(to route: Route)
 }

@@ -17,7 +17,7 @@ enum Route {
 
     // All the navigational routes for the MeetX View
     enum MeetX {
-        case details
+        case add
         case main
     }
 }

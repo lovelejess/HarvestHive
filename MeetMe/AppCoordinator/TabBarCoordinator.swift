@@ -29,5 +29,11 @@ class TabBarCoordinator: Coordinatable {
 
         rootViewController.viewControllers = [meetXViewController]
     }
+}
 
+
+extension TabBarCoordinator {
+    func navigate(to: Route) {
+        return
+    }
 }

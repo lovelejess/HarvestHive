@@ -13,13 +13,6 @@ import MapKit
 final class MapViewModelTests: XCTestCase {
     private var subscriptions = Set<AnyCancellable>()
 
-    func test_title_returns_title() {
-        let locationManager = LocationManager()
-        let actual = MapViewModel(locationManager: locationManager)
-
-        XCTAssertEqual(actual.title, "MeetX Locations")
-    }
-
     func test_region_updatesWithNewLocation_whenLocationManagerChangesRegion() throws {
         let locationManager = LocationManager()
         let viewModel = MapViewModel(locationManager: locationManager)

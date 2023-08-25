@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		163C37132A995DBE00B26A27 /* LocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C37122A995DBE00B26A27 /* LocationManagerTests.swift */; };
+		163C37152A9971FA00B26A27 /* MeetXViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C37142A9971FA00B26A27 /* MeetXViewModel.swift */; };
+		163C37182A9974A600B26A27 /* MeetXViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C37172A9974A600B26A27 /* MeetXViewModelTests.swift */; };
 		168115332A8182620068B482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115322A8182620068B482 /* AppDelegate.swift */; };
 		168115352A8182620068B482 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115342A8182620068B482 /* SceneDelegate.swift */; };
 		168115372A8182620068B482 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115362A8182620068B482 /* ViewController.swift */; };
@@ -48,6 +50,8 @@
 
 /* Begin PBXFileReference section */
 		163C37122A995DBE00B26A27 /* LocationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTests.swift; sourceTree = "<group>"; };
+		163C37142A9971FA00B26A27 /* MeetXViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetXViewModel.swift; sourceTree = "<group>"; };
+		163C37172A9974A600B26A27 /* MeetXViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetXViewModelTests.swift; sourceTree = "<group>"; };
 		1681152F2A8182620068B482 /* MeetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168115322A8182620068B482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168115342A8182620068B482 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,24 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		163C37162A99749600B26A27 /* MeetX */ = {
+			isa = PBXGroup;
+			children = (
+				163C37172A9974A600B26A27 /* MeetXViewModelTests.swift */,
+			);
+			path = MeetX;
+			sourceTree = "<group>";
+		};
+		163C37192A9974EF00B26A27 /* MeetX */ = {
+			isa = PBXGroup;
+			children = (
+				168DCD962A818E8C00690ACC /* MeetXCoordinator.swift */,
+				168DCD9A2A818F6A00690ACC /* MeetXViewController.swift */,
+				163C37142A9971FA00B26A27 /* MeetXViewModel.swift */,
+			);
+			path = MeetX;
+			sourceTree = "<group>";
+		};
 		168115262A8182620068B482 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				168DCD8E2A818D6B00690ACC /* AppCoordinator */,
+				163C37192A9974EF00B26A27 /* MeetX */,
 				168DCD952A818E7C00690ACC /* Map */,
 				168DCD8D2A818D5B00690ACC /* Main */,
 				168DCD9E2A8198FF00690ACC /* UIHelpers */,
@@ -145,6 +168,7 @@
 		168115482A8182650068B482 /* MeetMeTests */ = {
 			isa = PBXGroup;
 			children = (
+				163C37162A99749600B26A27 /* MeetX */,
 				163C37112A995D9200B26A27 /* Map */,
 			);
 			path = MeetMeTests;
@@ -182,8 +206,6 @@
 		168DCD952A818E7C00690ACC /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				168DCD962A818E8C00690ACC /* MeetXCoordinator.swift */,
-				168DCD9A2A818F6A00690ACC /* MeetXViewController.swift */,
 				168DCD9F2A829B7A00690ACC /* MapView.swift */,
 				16824A482A840B7700F3740B /* MapViewModel.swift */,
 				16824A4A2A840DD200F3740B /* LocationManager.swift */,
@@ -343,6 +365,7 @@
 				16824A4B2A840DD200F3740B /* LocationManager.swift in Sources */,
 				168115332A8182620068B482 /* AppDelegate.swift in Sources */,
 				168115352A8182620068B482 /* SceneDelegate.swift in Sources */,
+				163C37152A9971FA00B26A27 /* MeetXViewModel.swift in Sources */,
 				16824A472A8409FE00F3740B /* NavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				163C37132A995DBE00B26A27 /* LocationManagerTests.swift in Sources */,
+				163C37182A9974A600B26A27 /* MeetXViewModelTests.swift in Sources */,
 				16824A4D2A84149100F3740B /* MapViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

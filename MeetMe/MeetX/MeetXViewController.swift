@@ -10,6 +10,7 @@ import MapKit
 import SwiftUI
 
 class MeetXViewController: UIHostingController<MapView> {
+    var viewModel: MeetXViewModel!
 
     lazy var addButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addX))
@@ -24,6 +25,6 @@ class MeetXViewController: UIHostingController<MapView> {
     }
 
     @objc func addX() {
-        print("JESS")
+        viewModel.didPressAddX()
     }
 }
