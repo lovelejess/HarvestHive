@@ -11,14 +11,6 @@ import SwiftUI
 
 class MeetXViewController: UIHostingController<MapView> {
 
-    let locationManager: CLLocationManager = {
-       let manager = CLLocationManager()
-        manager.requestWhenInUseAuthorization()
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.distanceFilter = kCLHeadingFilterNone
-        return manager
-    }()
-
     lazy var addButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addX))
         button.tintColor = .white
@@ -29,8 +21,6 @@ class MeetXViewController: UIHostingController<MapView> {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = addButton
-
-        locationManager.startUpdatingLocation()
     }
 
     @objc func addX() {
