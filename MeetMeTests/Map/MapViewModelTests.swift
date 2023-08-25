@@ -27,13 +27,13 @@ final class MapViewModelTests: XCTestCase {
         let expected = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0))
         locationManager.region = expected
 
-        assertCoordinateRegionAreEqual(actual: try XCTUnwrap(viewModel.region), expected: expected)
+        assertCoordinateRegionAreEqual(try XCTUnwrap(viewModel.region), expected)
 
     }
 }
 
 extension XCTest {
-    func assertCoordinateRegionAreEqual(actual: MKCoordinateRegion, expected: MKCoordinateRegion) {
+    func assertCoordinateRegionAreEqual(_ actual: MKCoordinateRegion, _ expected: MKCoordinateRegion) {
         XCTAssertEqual(actual.center.latitude, expected.center.latitude)
         XCTAssertEqual(actual.center.longitude, expected.center.longitude)
         XCTAssertEqual(actual.span.latitudeDelta, expected.span.latitudeDelta)

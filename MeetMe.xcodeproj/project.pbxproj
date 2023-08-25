@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163C37132A995DBE00B26A27 /* LocationManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C37122A995DBE00B26A27 /* LocationManagerTests.swift */; };
 		168115332A8182620068B482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115322A8182620068B482 /* AppDelegate.swift */; };
 		168115352A8182620068B482 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115342A8182620068B482 /* SceneDelegate.swift */; };
 		168115372A8182620068B482 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115362A8182620068B482 /* ViewController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		163C37122A995DBE00B26A27 /* LocationManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTests.swift; sourceTree = "<group>"; };
 		1681152F2A8182620068B482 /* MeetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168115322A8182620068B482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168115342A8182620068B482 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				16824A4C2A84149100F3740B /* MapViewModelTests.swift */,
+				163C37122A995DBE00B26A27 /* LocationManagerTests.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				163C37132A995DBE00B26A27 /* LocationManagerTests.swift in Sources */,
 				16824A4D2A84149100F3740B /* MapViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
