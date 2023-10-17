@@ -33,7 +33,9 @@ class MeetXCoordinator: Coordinatable {
     }()
 
     lazy var addXViewController: UIHostingController = {
-        let viewController = UIHostingController(rootView: AddXView())
+        let viewModel = AddXViewModel()
+        let viewController = UIHostingController(rootView: AddXView(viewModel: viewModel))
+        viewController.title = viewModel.title
         return viewController
     }()
 

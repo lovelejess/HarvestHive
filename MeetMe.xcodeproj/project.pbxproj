@@ -11,6 +11,7 @@
 		163C37152A9971FA00B26A27 /* MeetXViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C37142A9971FA00B26A27 /* MeetXViewModel.swift */; };
 		163C37182A9974A600B26A27 /* MeetXViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C37172A9974A600B26A27 /* MeetXViewModelTests.swift */; };
 		163C371C2A99757200B26A27 /* AddXView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C371B2A99757200B26A27 /* AddXView.swift */; };
+		163C371E2A997C4900B26A27 /* AddXViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C371D2A997C4900B26A27 /* AddXViewModel.swift */; };
 		168115332A8182620068B482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115322A8182620068B482 /* AppDelegate.swift */; };
 		168115352A8182620068B482 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115342A8182620068B482 /* SceneDelegate.swift */; };
 		168115372A8182620068B482 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115362A8182620068B482 /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		163C37142A9971FA00B26A27 /* MeetXViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetXViewModel.swift; sourceTree = "<group>"; };
 		163C37172A9974A600B26A27 /* MeetXViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetXViewModelTests.swift; sourceTree = "<group>"; };
 		163C371B2A99757200B26A27 /* AddXView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddXView.swift; sourceTree = "<group>"; };
+		163C371D2A997C4900B26A27 /* AddXViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddXViewModel.swift; sourceTree = "<group>"; };
 		1681152F2A8182620068B482 /* MeetMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168115322A8182620068B482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168115342A8182620068B482 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				163C371B2A99757200B26A27 /* AddXView.swift */,
+				163C371D2A997C4900B26A27 /* AddXViewModel.swift */,
 			);
 			path = AddX;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				168DCD992A818EE700690ACC /* Route.swift in Sources */,
 				16824A4B2A840DD200F3740B /* LocationManager.swift in Sources */,
 				168115332A8182620068B482 /* AppDelegate.swift in Sources */,
+				163C371E2A997C4900B26A27 /* AddXViewModel.swift in Sources */,
 				168115352A8182620068B482 /* SceneDelegate.swift in Sources */,
 				163C37152A9971FA00B26A27 /* MeetXViewModel.swift in Sources */,
 				16824A472A8409FE00F3740B /* NavigationBar.swift in Sources */,
