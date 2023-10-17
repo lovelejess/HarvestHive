@@ -4,8 +4,10 @@
 <dict>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Enable location tracking to locate Harvest Hive and additional features </string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Enable location tracking to use Harvest Hive features</string>
+	<string>Enable location tracking to locate Harvest Hive and additional features</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

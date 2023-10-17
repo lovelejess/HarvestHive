@@ -39,9 +39,92 @@ final class LocationManagerTests: XCTestCase {
         waitForExpectations(timeout: 1)
         assertCoordinateRegionAreEqual(try XCTUnwrap(actual), expected)
     }
+
+    // MARK: didChangeAuthorization
+    func test_didChangeAuthorization_doesNotSetLocationFailure_whenAuthorizationStatus_authorizedAlways() throws {
+        // ARRANGE
+        let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
+        let locationManager = LocationManager(locationManager: fakeLocationManager)
+
+        // ACT
+        locationManager.locationManager(fakeLocationManager, didChangeAuthorization: .authorizedAlways)
+
+        // ASSERT
+        XCTAssertFalse(try XCTUnwrap(fakeLocationManager as? FakeLocationManager).didRequestAlwaysAuthorization)
+        XCTAssertNil(locationManager.locationFailure)
+    }
+
+    func test_didChangeAuthorization_doesNotSetLocationFailure_whenAuthorizationStatus_authorizedWhenInUse() throws {
+        // ARRANGE
+        let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
+        let locationManager = LocationManager(locationManager: fakeLocationManager)
+
+        // ACT
+        locationManager.locationManager(fakeLocationManager, didChangeAuthorization: .authorizedWhenInUse)
+
+        // ASSERT
+        XCTAssertFalse(try XCTUnwrap(fakeLocationManager as? FakeLocationManager).didRequestAlwaysAuthorization)
+        XCTAssertNil(locationManager.locationFailure)
+    }
+
+    func test_didChangeAuthorization_doesNotSetLocationFailure_whenAuthorizationStatus_notDetermined() throws {
+        // ARRANGE
+        let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
+        let locationManager = LocationManager(locationManager: fakeLocationManager)
+
+        // ACT
+        locationManager.locationManager(fakeLocationManager, didChangeAuthorization: .notDetermined)
+
+        // ASSERT
+        XCTAssertNil(locationManager.locationFailure)
+    }
+
+    func test_didChangeAuthorization_requestsAlwaysAuthorization_whenAuthorizationStatus_notDetermined() throws {
+        // ARRANGE
+        let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
+        let locationManager = LocationManager(locationManager: fakeLocationManager)
+
+        // ACT
+        locationManager.locationManager(fakeLocationManager, didChangeAuthorization: .notDetermined)
+
+        // ASSERT
+        XCTAssertTrue(try XCTUnwrap(fakeLocationManager as? FakeLocationManager).didRequestAlwaysAuthorization)
+    }
+
+    func test_didChangeAuthorization_setsLocationFailure_whenAuthorizationStatusIs_denied() throws {
+        // ARRANGE
+        let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
+        let locationManager = LocationManager(locationManager: fakeLocationManager)
+
+        // ACT
+        locationManager.locationManager(fakeLocationManager, didChangeAuthorization: .denied)
+
+        // ASSERT
+        XCTAssertFalse(try XCTUnwrap(fakeLocationManager as? FakeLocationManager).didRequestAlwaysAuthorization)
+        XCTAssertEqual(locationManager.locationFailure, .denied)
+    }
+
+    func test_didChangeAuthorization_setsLocationFailure_whenAuthorizationStatusIs_restricted() throws {
+        // ARRANGE
+        let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
+        let locationManager = LocationManager(locationManager: fakeLocationManager)
+
+        // ACT
+        locationManager.locationManager(fakeLocationManager, didChangeAuthorization: .restricted)
+
+        // ASSERT
+        XCTAssertFalse(try XCTUnwrap(fakeLocationManager as? FakeLocationManager).didRequestAlwaysAuthorization)
+        XCTAssertEqual(locationManager.locationFailure, .restricted)
+    }
 }
 
 final class FakeLocationManager: CLLocationManagerable {
+    var didRequestAlwaysAuthorization = false
+
+    func requestAlwaysAuthorization() {
+        didRequestAlwaysAuthorization = true
+    }
+
     var location: CLLocation? = CLLocation(
             latitude: 37.3317,
             longitude: -122.0325086
