@@ -14,7 +14,7 @@ class HiveMainViewController: UIHostingController<MapView> {
 
     lazy var addButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addX))
-        button.tintColor = .white
+        button.tintColor = UIColor.Theme.white
         button.title = "Add"
         return button
     }()

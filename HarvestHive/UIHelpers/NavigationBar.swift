@@ -11,8 +11,8 @@ import UIKit
 struct NavigationBar {
     static func defaultAppearance() -> UINavigationBarAppearance {
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = .lightGray
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.backgroundColor = UIColor.Theme.green
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.Theme.white]
         return appearance
     }
 }

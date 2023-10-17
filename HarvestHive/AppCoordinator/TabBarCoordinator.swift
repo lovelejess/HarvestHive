@@ -14,9 +14,9 @@ class TabBarCoordinator: Coordinatable {
 
     init() {
         rootViewController = UITabBarController()
-        rootViewController.tabBar.backgroundColor = .lightGray
-        rootViewController.tabBar.tintColor = .darkGray
-        rootViewController.tabBar.unselectedItemTintColor = .black
+        rootViewController.tabBar.backgroundColor = UIColor.Theme.green
+        rootViewController.tabBar.tintColor = UIColor.Theme.white
+        rootViewController.tabBar.unselectedItemTintColor = UIColor.Theme.darkOliveGreen
     }
 
     func start() {

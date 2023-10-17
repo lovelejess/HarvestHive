@@ -12,6 +12,7 @@
 		163C37182A9974A600B26A27 /* HiveMainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C37172A9974A600B26A27 /* HiveMainViewModelTests.swift */; };
 		163C371C2A99757200B26A27 /* AddXView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C371B2A99757200B26A27 /* AddXView.swift */; };
 		163C371E2A997C4900B26A27 /* AddXViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163C371D2A997C4900B26A27 /* AddXViewModel.swift */; };
+		167CCF192ADF2F5200FCDE23 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167CCF182ADF2F5200FCDE23 /* UIColor+Extensions.swift */; };
 		168115332A8182620068B482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115322A8182620068B482 /* AppDelegate.swift */; };
 		168115352A8182620068B482 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115342A8182620068B482 /* SceneDelegate.swift */; };
 		168115372A8182620068B482 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115362A8182620068B482 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 		163C37172A9974A600B26A27 /* HiveMainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveMainViewModelTests.swift; sourceTree = "<group>"; };
 		163C371B2A99757200B26A27 /* AddXView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddXView.swift; sourceTree = "<group>"; };
 		163C371D2A997C4900B26A27 /* AddXViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddXViewModel.swift; sourceTree = "<group>"; };
+		167CCF182ADF2F5200FCDE23 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		1681152F2A8182620068B482 /* HarvestHive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HarvestHive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168115322A8182620068B482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		168115342A8182620068B482 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			children = (
 				168DCD9C2A8197E700690ACC /* UITabBarHelper.swift */,
 				16824A462A8409FE00F3740B /* NavigationBar.swift */,
+				167CCF182ADF2F5200FCDE23 /* UIColor+Extensions.swift */,
 			);
 			path = UIHelpers;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				16824A492A840B7800F3740B /* MapViewModel.swift in Sources */,
 				163C371C2A99757200B26A27 /* AddXView.swift in Sources */,
 				168DCD9B2A818F6A00690ACC /* HiveMainViewController.swift in Sources */,
+				167CCF192ADF2F5200FCDE23 /* UIColor+Extensions.swift in Sources */,
 				168DCD942A818DE400690ACC /* TabBarCoordinator.swift in Sources */,
 				168DCD922A818D9100690ACC /* AppCoordinator.swift in Sources */,
 				168DCD9D2A8197E700690ACC /* UITabBarHelper.swift in Sources */,
