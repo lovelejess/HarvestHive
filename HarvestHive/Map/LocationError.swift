@@ -9,5 +9,6 @@ import Foundation
 
 enum LocationError: Error {
     case denied
+    case failure
     case unknown
 }

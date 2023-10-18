@@ -25,7 +25,7 @@ final class LocationManagerTests: XCTestCase {
                                           span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
 
         var actual: MKCoordinateRegion?
-        locationManager.userLocation
+        locationManager.$userLocation
             .dropFirst()
             .sink(receiveValue: { value in
                 actual = value.region
@@ -44,7 +44,7 @@ final class LocationManagerTests: XCTestCase {
     }
 
     // MARK: didChangeAuthorization
-    func test_didChangeAuthorization_doesNotSetLocationFailure_whenAuthorizationStatus_authorizedAlways() throws {
+    func test_didChangeAuthorization_doesNotUpdateUserLocation_whenAuthorizationStatus_authorizedAlways() throws {
         // ARRANGE
         let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
         let locationManager = LocationManager(locationManager: fakeLocationManager)
@@ -54,11 +54,11 @@ final class LocationManagerTests: XCTestCase {
 
         // ASSERT
         XCTAssertFalse(try XCTUnwrap(fakeLocationManager as? FakeLocationManager).didRequestAlwaysAuthorization)
-        XCTAssertEqual(locationManager.userLocation, UserLocation(region: noRegion, locationFailure: nil))
+        XCTAssertEqual(locationManager.userLocation, UserLocation())
 //        XCTAssertNil(locationManager.locationFailure)
     }
 
-    func test_didChangeAuthorization_doesNotSetLocationFailure_whenAuthorizationStatus_authorizedWhenInUse() throws {
+    func test_didChangeAuthorization_doesNotUpdateUserLocation_whenAuthorizationStatus_authorizedWhenInUse() throws {
         // ARRANGE
         let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
         let locationManager = LocationManager(locationManager: fakeLocationManager)
@@ -68,10 +68,10 @@ final class LocationManagerTests: XCTestCase {
 
         // ASSERT
         XCTAssertFalse(try XCTUnwrap(fakeLocationManager as? FakeLocationManager).didRequestAlwaysAuthorization)
-        XCTAssertEqual(locationManager.userLocation, UserLocation(region: noRegion, locationFailure: nil))
+        XCTAssertEqual(locationManager.userLocation, UserLocation())
     }
 
-    func test_didChangeAuthorization_doesNotSetLocationFailure_whenAuthorizationStatus_notDetermined() throws {
+    func test_didChangeAuthorization_doesNotUpdateUserLocation_whenAuthorizationStatus_notDetermined() throws {
         // ARRANGE
         let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
         let locationManager = LocationManager(locationManager: fakeLocationManager)
@@ -80,7 +80,7 @@ final class LocationManagerTests: XCTestCase {
         locationManager.locationManager(fakeLocationManager, didChangeAuthorization: .notDetermined)
 
         // ASSERT
-        XCTAssertEqual(locationManager.userLocation, UserLocation(region: noRegion, locationFailure: nil))
+        XCTAssertEqual(locationManager.userLocation, UserLocation())
     }
 
     func test_didChangeAuthorization_requestsAlwaysAuthorization_whenAuthorizationStatus_notDetermined() throws {
@@ -95,7 +95,7 @@ final class LocationManagerTests: XCTestCase {
         XCTAssertTrue(try XCTUnwrap(fakeLocationManager as? FakeLocationManager).didRequestAlwaysAuthorization)
     }
 
-    func test_didChangeAuthorization_setsLocationFailure_whenAuthorizationStatusIs_denied() throws {
+    func test_didChangeAuthorization_setsNoRegionAndLocationFailure_whenAuthorizationStatusIs_denied() throws {
         // ARRANGE
         let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
         let locationManager = LocationManager(locationManager: fakeLocationManager)
@@ -108,7 +108,7 @@ final class LocationManagerTests: XCTestCase {
         XCTAssertEqual(locationManager.userLocation, UserLocation(region: noRegion, locationFailure: .denied))
     }
 
-    func test_didChangeAuthorization_setsLocationFailure_whenAuthorizationStatusIs_restricted() throws {
+    func test_didChangeAuthorization_setsNoRegionAndLocationFailure_whenAuthorizationStatusIs_restricted() throws {
         // ARRANGE
         let fakeLocationManager: CLLocationManagerable = FakeLocationManager()
         let locationManager = LocationManager(locationManager: fakeLocationManager)

@@ -13,15 +13,29 @@ import MapKit
 final class MapViewModelTests: XCTestCase {
     private var subscriptions = Set<AnyCancellable>()
 
-    func test_region_updatesWithNewLocation_whenLocationManagerChangesRegion() throws {
+    func test_userLocation_updatesWithRegion_whenUserLocationChangesRegionAndNotNullIsland() throws {
         let locationManager = LocationManager()
+
         let viewModel = MapViewModel(locationManager: locationManager)
 
-        let expected = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0))
-        locationManager.userLocation.region = expected
+        let expectedRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 1234, longitude: 7890), span: MKCoordinateSpan(latitudeDelta: 21, longitudeDelta: 30))
+        let expectedUserLocation = UserLocation(region: expectedRegion, locationFailure: nil)
+        locationManager.userLocation = expectedUserLocation
 
-        assertCoordinateRegionAreEqual(try XCTUnwrap(viewModel.region), expected)
+        assertCoordinateRegionAreEqual(try XCTUnwrap(viewModel.region), expectedRegion)
+    }
 
+    func test_userLocation_setsShouldShowErrorAlert_toTrue_whenUserLocationChangesRegionIsNullIslandAndLocationFailureIsNotNil() throws {
+        let locationManager = LocationManager()
+
+        let viewModel = MapViewModel(locationManager: locationManager)
+
+        let expectedRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0))
+        let expectedUserLocation = UserLocation(region: expectedRegion, locationFailure: .failure)
+        locationManager.userLocation = expectedUserLocation
+
+        assertCoordinateRegionAreEqual(try XCTUnwrap(viewModel.region), expectedRegion)
+        XCTAssertTrue(viewModel.shouldShowErrorAlert)
     }
 }
 

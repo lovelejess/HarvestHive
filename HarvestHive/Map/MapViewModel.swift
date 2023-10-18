@@ -10,27 +10,39 @@ import MapKit
 import Combine
 
 class MapViewModel: ObservableObject {
-
-    var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.507222, longitude: -0.1275), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-    var shouldShowErrorAlert: Bool = false
+    static let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 10.762622, longitude: 106.660172), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    var region: MKCoordinateRegion = initialRegion
+    var shouldShowErrorAlert = false
     private var subscriptions = Set<AnyCancellable>()
     private var locationManager: LocationManager
 
     init(locationManager: LocationManager) {
         self.locationManager = locationManager
-        self.locationManager.userLocation
-            .sink { [weak self] completion in
-                switch completion {
-                case .finished:
-                    print("Received finished")
-                case .failure(let error):
-                    self?.shouldShowErrorAlert = true
-                    print("JESS: location.shouldShowErrorAlert is \(self?.shouldShowErrorAlert)")
+        subscribeToLocationChanges()
+        locationManager.fetchLocation()
+    }
+
+    private func subscribeToLocationChanges() {
+        self.locationManager.$userLocation
+            .sink(receiveValue: { [weak self] location in
+                guard let self = self else { return }
+                if self.isNullIsland(region: location.region) && location.locationFailure != nil {
+                    print("JESS: is Null Island")
+                    self.shouldShowErrorAlert = true
+                    self.region = location.region
+                } else {
+                    print("JESS: Updating region")
+                    self.shouldShowErrorAlert = false
+                    self.region = location.region
                 }
-            } receiveValue: { [weak self] location in
-                self?.region = location.region
-                print("JESS: location.showsshow is \(location.locationFailure)")
-                self?.shouldShowErrorAlert = false
-            }.store(in: &subscriptions)
+            }).store(in: &subscriptions)
+    }
+
+    private func isNullIsland(region: MKCoordinateRegion) -> Bool {
+        let isNullIsland = region.center.latitude == CLLocationDegrees(0) &&
+        region.center.longitude == CLLocationDegrees(0) &&
+        region.span.latitudeDelta == CLLocationDegrees(0) &&
+        region.span.longitudeDelta == CLLocationDegrees(0)
+        return isNullIsland
     }
 }

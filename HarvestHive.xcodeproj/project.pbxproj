@@ -33,6 +33,7 @@
 		168DCD9B2A818F6A00690ACC /* HiveMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD9A2A818F6A00690ACC /* HiveMainViewController.swift */; };
 		168DCD9D2A8197E700690ACC /* UITabBarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD9C2A8197E700690ACC /* UITabBarHelper.swift */; };
 		168DCDA02A829B7A00690ACC /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168DCD9F2A829B7A00690ACC /* MapView.swift */; };
+		16BF3D3E2AE0885500A4B6F4 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BF3D3D2AE0885500A4B6F4 /* UserLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		168DCD9A2A818F6A00690ACC /* HiveMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveMainViewController.swift; sourceTree = "<group>"; };
 		168DCD9C2A8197E700690ACC /* UITabBarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarHelper.swift; sourceTree = "<group>"; };
 		168DCD9F2A829B7A00690ACC /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		16BF3D3D2AE0885500A4B6F4 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				16824A482A840B7700F3740B /* MapViewModel.swift */,
 				16824A4A2A840DD200F3740B /* LocationManager.swift */,
 				167FEEC12ADF6D3C00AB418D /* LocationError.swift */,
+				16BF3D3D2AE0885500A4B6F4 /* UserLocation.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				168DCD9B2A818F6A00690ACC /* HiveMainViewController.swift in Sources */,
 				167FEEC22ADF6D3C00AB418D /* LocationError.swift in Sources */,
 				167CCF192ADF2F5200FCDE23 /* UIColor+Extensions.swift in Sources */,
+				16BF3D3E2AE0885500A4B6F4 /* UserLocation.swift in Sources */,
 				168DCD942A818DE400690ACC /* TabBarCoordinator.swift in Sources */,
 				168DCD922A818D9100690ACC /* AppCoordinator.swift in Sources */,
 				168DCD9D2A8197E700690ACC /* UITabBarHelper.swift in Sources */,

@@ -25,24 +25,26 @@ protocol LocationManagerDelegate {
 }
 
 protocol LocationManagable {
-    var userLocation: CurrentValueSubject<UserLocation, LocationError> { get }
+    var userLocation: UserLocation { get }
 }
 
 class LocationManager: NSObject, LocationManagable, CLLocationManagerDelegate, ObservableObject {
-    var userLocation = CurrentValueSubject<UserLocation, LocationError>(UserLocation())
+    @Published var userLocation = UserLocation()
     private let manager = CLLocationManager()
     private var locationManagerDelegate: LocationManagerDelegate?
 
-    init(locationManager: CLLocationManagerable = CLLocationManager()) {
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestAlwaysAuthorization()
-        manager.startUpdatingLocation()
-    }
+    init(locationManager: CLLocationManagerable = CLLocationManager()) {}
 
     override init() {
         super.init()
         manager.delegate = self
         locationManagerDelegate = self
+    }
+
+    func fetchLocation() {
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestAlwaysAuthorization()
+        manager.startUpdatingLocation()
     }
 }
 
@@ -70,12 +72,12 @@ extension LocationManager: LocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManagerable, didFailWithError error: Error) {
         print("JESS location failure: \(error)")
+        userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0)), locationFailure: .failure)
     }
     
     func locationManager(_ manager: CLLocationManagerable, didUpdateLocations locations: [CLLocation]) {
         locations.last.map {
-            userLocation.value.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
-                                        span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+            userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)), locationFailure: nil)
         }
     }
 
@@ -83,35 +85,15 @@ extension LocationManager: LocationManagerDelegate {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             print("Location sharing enabled")
-            userLocation.send(completion: .finished)
         case .denied, .restricted:
             print("Location sharing \(status)")
-            userLocation.send(completion: .failure(LocationError.denied))
+            userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0)), locationFailure: .denied)
         case .notDetermined:
             print("Location sharing not determined")
             manager.requestAlwaysAuthorization()
-            userLocation.send(completion: .finished)
         @unknown default:
             print("Location sharing unknown")
-            userLocation.send(completion: .failure(LocationError.unknown))
+            userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0)), locationFailure: .unknown)
         }
-    }
-}
-
-class UserLocation: Equatable {
-    var region = MKCoordinateRegion()
-    var locationFailure: LocationError?
-
-    init(region: MKCoordinateRegion, locationFailure: LocationError?) {
-        self.region = region
-        self.locationFailure = locationFailure
-    }
-
-    static func == (lhs: UserLocation, rhs: UserLocation) -> Bool {
-        return lhs.region.center.latitude == rhs.region.center.latitude &&
-        lhs.region.center.longitude == rhs.region.center.longitude &&
-        lhs.region.span.longitudeDelta == rhs.region.span.longitudeDelta &&
-        lhs.region.span.latitudeDelta == rhs.region.span.latitudeDelta &&
-        lhs.locationFailure == rhs.locationFailure
     }
 }
