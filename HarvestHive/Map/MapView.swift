@@ -17,6 +17,12 @@ struct MapView: View {
             interactionModes: .all,
             showsUserLocation: true,
             userTrackingMode: $tracking)
+        .alert(isPresented: $viewModel.shouldShowErrorAlert) {
+                Alert(
+                    title: Text("Current Location Not Available"),
+                    message: Text("Cannot retrieve Hives. Please update privacy in Settings > Privacy > Location > App.")
+                )
+            }
     }
 }
 

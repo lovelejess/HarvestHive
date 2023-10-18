@@ -5,6 +5,7 @@
 //  Created by Jess Lê on 8/9/23.
 //
 
+import Combine
 import Foundation
 import MapKit
 
@@ -24,13 +25,11 @@ protocol LocationManagerDelegate {
 }
 
 protocol LocationManagable {
-    var region: MKCoordinateRegion { get set }
-    var locationFailure: CLAuthorizationStatus? { get }
+    var userLocation: CurrentValueSubject<UserLocation, LocationError> { get }
 }
 
 class LocationManager: NSObject, LocationManagable, CLLocationManagerDelegate, ObservableObject {
-    @Published var region = MKCoordinateRegion()
-    @Published var locationFailure: CLAuthorizationStatus?
+    var userLocation = CurrentValueSubject<UserLocation, LocationError>(UserLocation())
     private let manager = CLLocationManager()
     private var locationManagerDelegate: LocationManagerDelegate?
 
@@ -75,7 +74,7 @@ extension LocationManager: LocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManagerable, didUpdateLocations locations: [CLLocation]) {
         locations.last.map {
-            region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
+            userLocation.value.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude),
                                         span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
         }
     }
@@ -84,15 +83,35 @@ extension LocationManager: LocationManagerDelegate {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             print("Location sharing enabled")
+            userLocation.send(completion: .finished)
         case .denied, .restricted:
             print("Location sharing \(status)")
-            locationFailure = status
+            userLocation.send(completion: .failure(LocationError.denied))
         case .notDetermined:
             print("Location sharing not determined")
             manager.requestAlwaysAuthorization()
+            userLocation.send(completion: .finished)
         @unknown default:
             print("Location sharing unknown")
-            locationFailure = status
+            userLocation.send(completion: .failure(LocationError.unknown))
         }
+    }
+}
+
+class UserLocation: Equatable {
+    var region = MKCoordinateRegion()
+    var locationFailure: LocationError?
+
+    init(region: MKCoordinateRegion, locationFailure: LocationError?) {
+        self.region = region
+        self.locationFailure = locationFailure
+    }
+
+    static func == (lhs: UserLocation, rhs: UserLocation) -> Bool {
+        return lhs.region.center.latitude == rhs.region.center.latitude &&
+        lhs.region.center.longitude == rhs.region.center.longitude &&
+        lhs.region.span.longitudeDelta == rhs.region.span.longitudeDelta &&
+        lhs.region.span.latitudeDelta == rhs.region.span.latitudeDelta &&
+        lhs.locationFailure == rhs.locationFailure
     }
 }

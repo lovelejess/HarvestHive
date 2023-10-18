@@ -18,7 +18,7 @@ final class MapViewModelTests: XCTestCase {
         let viewModel = MapViewModel(locationManager: locationManager)
 
         let expected = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0))
-        locationManager.region = expected
+        locationManager.userLocation.region = expected
 
         assertCoordinateRegionAreEqual(try XCTUnwrap(viewModel.region), expected)
 
