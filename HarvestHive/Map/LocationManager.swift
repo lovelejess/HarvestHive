@@ -43,7 +43,10 @@ class LocationManager: NSObject, LocationManagable, CLLocationManagerDelegate, O
 
     func fetchLocation() {
         manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestAlwaysAuthorization()
+        manager.activityType = .otherNavigation
+        manager.pausesLocationUpdatesAutomatically = true
+        manager.allowsBackgroundLocationUpdates = false
+        manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
     }
 }
