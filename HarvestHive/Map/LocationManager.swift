@@ -72,7 +72,7 @@ extension LocationManager: LocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManagerable, didFailWithError error: Error) {
         print("JESS location failure: \(error)")
-        userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0)), locationFailure: .failure)
+        userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)), locationFailure: .failure)
     }
     
     func locationManager(_ manager: CLLocationManagerable, didUpdateLocations locations: [CLLocation]) {
@@ -87,13 +87,13 @@ extension LocationManager: LocationManagerDelegate {
             print("Location sharing enabled")
         case .denied, .restricted:
             print("Location sharing \(status)")
-            userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0)), locationFailure: .denied)
+            userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)), locationFailure: .denied)
         case .notDetermined:
             print("Location sharing not determined")
             manager.requestAlwaysAuthorization()
         @unknown default:
             print("Location sharing unknown")
-            userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0, longitudeDelta: 0)), locationFailure: .unknown)
+            userLocation = UserLocation(region: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)), locationFailure: .unknown)
         }
     }
 }

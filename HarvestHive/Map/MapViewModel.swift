@@ -41,8 +41,8 @@ class MapViewModel: ObservableObject {
     private func isNullIsland(region: MKCoordinateRegion) -> Bool {
         let isNullIsland = region.center.latitude == CLLocationDegrees(0) &&
         region.center.longitude == CLLocationDegrees(0) &&
-        region.span.latitudeDelta == CLLocationDegrees(0) &&
-        region.span.longitudeDelta == CLLocationDegrees(0)
+        region.span.latitudeDelta == CLLocationDegrees(0.5) &&
+        region.span.longitudeDelta == CLLocationDegrees(0.5)
         return isNullIsland
     }
 }
