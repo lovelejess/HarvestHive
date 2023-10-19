@@ -13,6 +13,11 @@ class MapViewModel: ObservableObject {
     static let initialRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 10.762622, longitude: 106.660172), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     var region: MKCoordinateRegion = initialRegion
     var shouldShowErrorAlert = false
+    var errorDetails: LocationAlertDetails? {
+        didSet {
+            print("errordetails set")
+        }
+    }
     private var subscriptions = Set<AnyCancellable>()
     private var locationManager: LocationManager
 
@@ -30,6 +35,7 @@ class MapViewModel: ObservableObject {
                     print("JESS: is Null Island")
                     self.shouldShowErrorAlert = true
                     self.region = location.region
+                    self.errorDetails = LocationAlertDetails(errorName: "")
                 } else {
                     print("JESS: Updating region")
                     self.shouldShowErrorAlert = false

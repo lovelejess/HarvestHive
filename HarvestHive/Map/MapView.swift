@@ -20,13 +20,21 @@ struct MapView: View {
             interactionModes: .all,
             showsUserLocation: true,
             userTrackingMode: $tracking)
-        .alert(isPresented: $viewModel.shouldShowErrorAlert) {
-            Alert(
-                title: Text("Current Location Not Available"),
-                message: Text("Cannot retrieve Hives. Please update privacy in Settings > Privacy > Location > App.")
-            )
+        .alert(
+            "Current Location Not Available",
+            isPresented: $viewModel.shouldShowErrorAlert,
+            presenting: $viewModel.errorDetails
+        ) { details in
+            Button("OK") {}
+        } message: { details in
+            Text("Cannot retrieve Hives. Please update privacy in Settings > Privacy > Location > App.")
         }
     }
+}
+
+struct LocationAlertDetails: Identifiable {
+    let errorName: String
+    let id = UUID()
 }
 
 struct MapView_Previews: PreviewProvider {
