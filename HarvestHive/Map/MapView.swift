@@ -25,9 +25,15 @@ struct MapView: View {
             isPresented: $viewModel.shouldShowErrorAlert,
             presenting: $viewModel.errorDetails
         ) { details in
-            Button("OK") {}
+            Button("Open Settings") {
+                // Get the settings URL and open it
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url)
+                }
+            }
+            Button("Dismiss") {}
         } message: { details in
-            Text("Cannot retrieve Hives. Please update privacy in Settings > Privacy > Location > App.")
+            Text("Cannot retrieve Hives. Please update privacy in Settings.")
         }
     }
 }
